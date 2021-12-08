@@ -1,20 +1,24 @@
 // Date: Nov 26, 2021
 
-// helper function
-private void reverse(int [] A, int begin, int end) {
-	while (begin < end) {
-		int tmp = A[begin];
-		A[begin++] = A[end];
-		A[end--] = tmp;
+// helper function with time complexity O(n)
+public static void reverse(int[] A, int first, int last) {
+	while (first < last) {
+		int tmp = A[first];
+		A[first++] = A[last];
+		A[last--] = tmp;
 	}
 }
 
-// time complexity: O(n)
+// time complexity: O(N)
 // space complexity: O(1)
-public int[] solution(int[] A, int K) {
-	int n = A.length;
-	K = K % n;
-	reverse(A, 0, n - 1);
-	reverse(A, 0, K - 1);
-	reverse(A, K, n - 1);
+public static int[] solution(int[] A, int K) {
+	int N = A.length;
+	if (N == 0) return A;
+	K %= N;
+	if (K > 0) {
+		reverse(A, 0, N - 1);
+		reverse(A, 0, K - 1);
+		reverse(A, K, N - 1);
+	}
+	return A;
 }

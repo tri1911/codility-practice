@@ -28,3 +28,24 @@ public int solution(int[] A) {
 // https://www.tutorialspoint.com/difference-between-hashmap-and-hashset-in-java#:~:text=HashMap%20and%20HashSet%20both%20are,classes%20of%20Java%20Collection%20framework.&text=HashMap%20Stores%20elements%20in%20form,such%20key%20value%20pairs%20maintained.
 // https://www.tutorialspoint.com/checking-if-a-hashset-contains-certain-value-in-java
 // https://www.techiedelight.com/convert-int-array-integer-array-java/
+
+// redo on Dec 7, 2021
+// time complexity: O(N)
+// space complexity: O(1)
+// result: https://app.codility.com/demo/results/trainingKGJG5K-8RY/
+public static int solution(int[] A) {
+    int N = A.length;
+    HashSet<Integer> numbers = new HashSet<>();
+    for (int value: A) {
+        if (value > 0) {
+            numbers.add(value);
+        }
+    }
+    int M = numbers.size();
+    for (int i = 1; i <= M; i++) {
+        if (!numbers.contains(i)) {
+            return i;
+        }
+    }
+    return M + 1;
+}

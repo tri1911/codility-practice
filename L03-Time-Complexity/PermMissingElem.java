@@ -4,17 +4,17 @@
 // using hash table
 // time complexity: O(n)
 // space complexity: O(n)
+// result: https://app.codility.com/demo/results/trainingVEEH9T-58E/
 public int solution(int[] A) {
-	int n = A.length;
-	boolean []exists = new boolean[n + 2];
-	for (int i: A) {
-		exists[i] = true;
+	int N = A.length;
+	if (N == 0) return 1;
+	boolean[] exists = new boolean[N + 2];
+	for (int value : A) {
+		exists[value] = true;
 	}
-
-	for (int i = 1; i <= n + 1; i++) {
-		if(!exists[i]) {
-			return i;
-		}
+	int ans = 1;
+	while (exists[ans]) {
+		ans++;
 	}
-	return -1;
+	return ans;
 }

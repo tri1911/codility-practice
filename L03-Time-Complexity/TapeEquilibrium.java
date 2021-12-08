@@ -4,19 +4,18 @@
 // use Sliding Window Technique
 // time complexity: O(n)
 // space complexity: O(1)
+// result: https://app.codility.com/demo/results/trainingEXK2ZS-7XY/
 public int solution(int[] A) {
-	int n = A.length;
-	int ans = 0;
-	// calculate the sum of elements in array
-	for (int num: A) {
-		ans += num;
+	int N = A.length;
+	int leftSum = A[0], rightSum = 0;
+	for (int i = 1; i < N; i++) {
+		rightSum += A[i];
 	}
-
-	int first = 0, second = ans;
-	for (int i = 1; i < n; i++) {
-		first += A[i - 1];
-		second -= A[i - 1];
-		ans = Math.min(ans, Math.abs(first - second));
+	int ans = Math.abs(leftSum - rightSum);
+	for (int i = 1; i < N - 1; i++) {
+		leftSum += A[i];
+		rightSum -= A[i];
+		ans = Math.min(ans, Math.abs(leftSum - rightSum));
 	}
 	return ans;
 }

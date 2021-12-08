@@ -22,3 +22,19 @@ public class Solution {
 		return ans;
 	}
 }
+
+// redo
+public int solution(int N) {
+	String asBin = Integer.toString(N, 2);
+	int ans = 0;
+	int oneIndex = -1;
+	for (int i = 0; i < asBin.length(); i++) {
+		if (asBin.charAt(i) == '1') {
+			if (oneIndex != -1) {
+				ans = Math.max(i - oneIndex - 1, ans);
+			}
+			oneIndex = i;
+		}
+	}
+	return ans;
+}
