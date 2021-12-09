@@ -20,15 +20,4 @@ public int solution(int[] A) {
 // We can represent the array as intervals:
 // [-1,1], [-4,6], [0,4], [2,4], [0,8], [5,5]
 
-
-//  -4 -1 0 1 2 4 5 6 8
-
-//  -4              6
-//     -1   1
-//        0     4
-//        0           8
-//            2 4
-//                5
-
-
 // (start1 <= start2 and end1 <= end2) OR (start1 == end2) OR (start2 == end1)

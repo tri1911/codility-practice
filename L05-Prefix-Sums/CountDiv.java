@@ -4,16 +4,19 @@
 // time complexity: O(1)
 // space complexity: O(1)
 public int solution(int A, int B, int K) {
-	if (K > B) {
-		if (A > 0) {
-			return 0;
-		} else {
-			return 1;
-		}
-	}
-	int high = (int) Math.floor((double) B / K);
-	int low = (int) Math.ceil((double) A / K);
-	return (high - low + 1);
+	// if (K > B) {
+	// 	if (A > 0) {
+	// 		return 0;
+	// 	} else {
+	// 		return 1;
+	// 	}
+	// }
+	// int high = (int) Math.floor((double) B / K);
+	// int low = (int) Math.ceil((double) A / K);
+	// return (high - low + 1);
+	int low = (int) Math.ceil(A * 1.0 / K);
+	int high = Math.floorDiv(B, K);
+	return high - low + 1;
 }
 
 // Test Cases:
